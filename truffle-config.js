@@ -42,7 +42,7 @@
        host: "127.0.0.1",     // Localhost (default: none)
        port: 8545,            // Standard Ethereum port (default: none)
        network_id: "*",       // Any network (default: none)
-       gasPrice: 60
+      //  gasPrice: 60
      },
  
      ropsten: {
@@ -56,17 +56,21 @@
  
      rinkeby: {
        provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${process.env.INFURA}`),
-       network_id: 4
+       network_id: 4,
+       skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
      },
  
      harmony: {
        provider: () => new HDWalletProvider(mnemonic, `https://api.s0.pops.one/`),
        network_id: 1666700000,       // Testnet's id
+       skipDryRun: true 
      },
  
      aurora: {
        provider: () => new HDWalletProvider(mnemonic, `https://testnet.aurora.dev`),
-       network_id: 1313161555,       // Testnet's id
+       network_id: 0x4e454153,       // Testnet's id
+       gas: 10000000,
+       skipDryRun: true 
      },
  
    },
